@@ -62,7 +62,7 @@ const GenerateForm = () => {
   return (
     <>
       <ToastContainer />
-      <div className='grid grid-cols-1 md:grid-cols-2 p-[10vw] bg-[#225ac0] min-h-screen'>
+      <div className='grid grid-cols-1 md:grid-cols-2 p-[10vw] pt-16 md:p-[10vw] bg-[#225ac0] min-h-screen'>
         <div className="form flex flex-col justify-start items-start text-black py-6">
           <h1 className='font-bold text-3xl'>Create Your Link-Way</h1>
 
@@ -73,17 +73,17 @@ const GenerateForm = () => {
 
           <h2 className='text-gray-800 mt-3'>Step 2: Add Links</h2>
           {links.map((item, index) => (
-            <div key={index} className="ml-4 mt-2 flex gap-2">
+            <div key={index} className="ml-4 mt-2 flex gap-2 flex-col lg:flex-row">
               <input value={item.linktext || ''} onChange={e => handleChange(index, item.link, e.target.value)} className='bg-white text-gray-600 p-1.5 px-3 rounded-full focus:outline-purple-900' type="text" placeholder='Enter link text' />
-              <input value={item.link || ''} onChange={e => handleChange(index, e.target.value, item.linktext)} className='bg-white text-gray-600 p-1.5 px-3 rounded-full w-35 focus:outline-purple-900' type="text" placeholder='Enter link' />
+              <input value={item.link || ''} onChange={e => handleChange(index, e.target.value, item.linktext)} className='bg-white text-gray-600 p-1.5 px-3 rounded-full lg:w-40 focus:outline-purple-900' type="text" placeholder='Enter link' />
             </div>
           ))}
           <button onClick={addLink} className='mt-2 ml-4 bg-green-800 text-white p-1.5 px-3 rounded-full'>+ Add Link</button>
 
           <h2 className='text-gray-800 mt-3'>Step 3: Add Picture and Finalize</h2>
-          <div className="ml-4">
-            <input value={profilePicture} onChange={e => setProfilePicture(e.target.value)} className='bg-white text-gray-600 p-1.5 px-3 rounded-full focus:outline-purple-900 w-[30vw]' type="text" placeholder='Enter link your profile picture' />
-            <button disabled={handle === '' || links[0].linktext === '' || links[0].link === ''} onClick={submitLinks} className='disabled:bg-slate-600 bg-green-800 text-white px-4 py-2 rounded-full mt-4'>Create Link-Way</button>
+          <div className="ml-4 flex flex-col gap-2 mt-2 min-w-[70vw] md:min-w-[30vw]">
+            <input value={profilePicture} onChange={e => setProfilePicture(e.target.value)} className='bg-white text-gray-600 p-1.5 px-3 rounded-full focus:outline-purple-900' type="text" placeholder='Enter link your profile picture' />
+            <button disabled={handle === '' || links[0].linktext === '' || links[0].link === ''} onClick={submitLinks} className='disabled:bg-slate-600 bg-green-800 text-white px-4 py-2 rounded-full'>Create Link-Way</button>
           </div>
 
           {handleGenerated && (
@@ -93,7 +93,7 @@ const GenerateForm = () => {
             </div>
           )}
         </div>
-        <div className="image">
+        <div className="image md:block hidden">
           <img src="/banner-login.jpg" alt="" className=" w-full h-auto object-cover" />
         </div>
       </div>

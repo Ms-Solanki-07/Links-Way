@@ -46,12 +46,12 @@ const Navbar = () => {
     }
   }
 
-  return (<>{isGeneratePage && <nav className='bg-white text-black justify-between flex items-center rounded-full w-[80vw] mx-auto shadow-lg fixed top-4 left-1/2 transform -translate-x-1/2'>
-    <div className="logo flex gap-6 items-center p-4">
-      <Link href={'/'}><h1 className="text-xl mx-3 font-bold">Links-Way</h1></Link>
+  return (<>{isGeneratePage && <nav className='md:bg-white mix-blend-color-dodge md:mix-blend-normal text-black justify-between flex items-center rounded-full w-[90vw] md:w-[80vw] mx-auto shadow-lg fixed top-4 left-1/2 transform -translate-x-1/2'>
+    <div className="logo gap-6 items-center p-4">
+      <Link href={'/'}><h1 className="md:text-xl mx-3 font-bold">Links-Way</h1></Link>
     </div>
     <div>
-      <ul className='flex gap-4 items-center justify-end mx-4'>
+      <ul className='flex gap-4 items-center justify-end mx-4 absolute top-3 left-2 md:static'>
         {/* <li className='bg-slate-200 rounded-lg px-4 py-2'>Sign In</li> */}
         <input value={handle} onChange={e => { setHandle(e.target.value) }} className='bg-slate-300 text-black px-4 py-2 min-w-8 rounded-full' type="text" placeholder='Search Handle' />
         <button onClick={() => searchHandle()} className='bg-green-800 rounded-full text-white px-4 py-2'>Search</button>

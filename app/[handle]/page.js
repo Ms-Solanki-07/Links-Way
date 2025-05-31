@@ -21,7 +21,7 @@ export default async function Page({ params }) {
 
             <div className="links flex flex-col items-center justify-center gap-4">
                 {user.links.map((item, index) => {
-                    return <Link key={index} href={`https://${item.link}`} target="_blank" className="link bg-white text-black hover:bg-blue-900 transition duration-300 px-4 py-2 rounded-full w-[30vw] text-center">
+                    return <Link key={index} href={`https://${item.link}`} target="_blank" className="link bg-white text-black hover:bg-blue-900 transition duration-300 px-4 py-2 rounded-full min-w-[30vw] text-center">
                             {item.linktext}
                             {' - '}
                             {item.link}
