@@ -51,7 +51,7 @@ const Navbar = () => {
       <Link href={'/'}><h1 className="md:text-xl mx-3 font-bold">Links-Way</h1></Link>
     </div>
     <div>
-      <ul className='flex gap-4 items-center justify-end mx-4 absolute top-3 left-2 md:static'>
+      <ul className='flex gap-4 items-center justify-end mx-4 absolute top-3 left-0.5 md:static'>
         {/* <li className='bg-slate-200 rounded-lg px-4 py-2'>Sign In</li> */}
         <input value={handle} onChange={e => { setHandle(e.target.value) }} className='bg-slate-300 text-black px-4 py-2 min-w-8 rounded-full' type="text" placeholder='Search Handle' />
         <button onClick={() => searchHandle()} className='bg-green-800 rounded-full text-white px-4 py-2'>Search</button>
