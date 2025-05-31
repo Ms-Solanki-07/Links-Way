@@ -47,12 +47,12 @@ const GenerateForm = () => {
 
     const data = await res.json();
 
+    setProfilePicture('');
     if (data.success) {
-      toast.success(data.message);
-      setProfilePicture('');
-      setLinks([{ link: '', linktext: '' }]);
-      router.push(`/generate?handlegenerated=true`);
-      setYourLinkWay(`${process.env.NEXT_PUBLIC_HOST}/${handle}`);
+        setYourLinkWay(`${process.env.NEXT_PUBLIC_HOST}/${handle}`);
+        setLinks([{ link: '', linktext: '' }]);
+        router.push(`/generate?handlegenerated=true`);
+        toast.success(data.message);
       setHandle('');
     } else {
       toast.error(data.message);
@@ -83,7 +83,7 @@ const GenerateForm = () => {
           <h2 className='text-gray-800 mt-3'>Step 3: Add Picture and Finalize</h2>
           <div className="ml-4">
             <input value={profilePicture} onChange={e => setProfilePicture(e.target.value)} className='bg-white text-gray-600 p-1.5 px-3 rounded-full focus:outline-purple-900 w-[30vw]' type="text" placeholder='Enter link your profile picture' />
-            <button disabled={handle === '' || links[0].linktext === ''} onClick={submitLinks} className='disabled:bg-slate-600 bg-green-800 text-white px-4 py-2 rounded-full mt-4'>Create Link-Way</button>
+            <button disabled={handle === '' || links[0].linktext === '' || links[0].link === ''} onClick={submitLinks} className='disabled:bg-slate-600 bg-green-800 text-white px-4 py-2 rounded-full mt-4'>Create Link-Way</button>
           </div>
 
           {handleGenerated && (
