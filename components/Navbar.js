@@ -35,7 +35,7 @@ const Navbar = () => {
         redirect: "follow"
       };
 
-      let r = await fetch("http://localhost:3000/api/search", requestOptions)
+      let r = await fetch("/api/search", requestOptions)
       let res = await r.json();
       if (res.success) {
         router.push(`/${res.result.handle}`);
